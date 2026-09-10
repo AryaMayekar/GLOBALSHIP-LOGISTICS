@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased overflow-x-hidden text-slate-800 bg-white font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-navy-900;
+  }
+}
+
+@layer components {
+  /* Brand Buttons */
+  .btn-gold {
+    @apply bg-gold-400 hover:bg-gold-500 text-navy-950 font-semibold px-7 py-3 rounded-md transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 inline-flex items-center justify-center;
+  }
+  
+  .btn-outline-gold {
+    @apply border-2 border-gold-400 text-gold-400 hover:bg-gold-400 hover:text-navy-950 font-semibold px-7 py-3 rounded-md transition-all duration-300 active:scale-95 inline-flex items-center justify-center;
+  }
+
+  /* Section Containers */
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20;
+  }
+
+  /* Gold Underline Bar */
+  .gold-underline {
+    @apply inline-block border-b-4 border-gold-500 pb-1;
+  }
+  
+  .gold-bar {
+    @apply w-24 h-1 bg-gold-500 rounded-full;
+  }
+}
+
+/* Marquee Carousel Animations */
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marquee-left 35s linear infinite;
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: marquee-right 35s linear infinite;
+}
+
+.marquee-container:hover .animate-marquee-left,
+.marquee-container:hover .animate-marquee-right {
+  animation-play-state: paused;
+}
