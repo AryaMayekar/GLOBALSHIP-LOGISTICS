@@ -35,7 +35,7 @@ const ServicesPreview = () => {
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             onError={(e) => {
               e.target.onerror = null;
-              e.target.src = '/rail_cargo.jpg';
+              e.target.src = '/logo_gsl.png';
             }}
           />
         )}

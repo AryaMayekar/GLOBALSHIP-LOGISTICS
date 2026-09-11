@@ -18,7 +18,7 @@ const FAQ = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-start">
           
           {/* Left Column: Heading + Graphic Illustration */}
-          <div className="lg:col-span-5 flex flex-col space-y-6 sm:space-y-8">
+          <div className="lg:col-span-5 lg:self-center flex flex-col space-y-6 sm:space-y-8">
             <div>
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}

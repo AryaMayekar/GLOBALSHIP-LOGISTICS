@@ -1,9 +1,10 @@
 export const IMAGES = {
   heroBg: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=2000',
   domesticTruck: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=1200',
-  airCargo: 'https://images.unsplash.com/photo-1542296372-67429960e6a1?auto=format&fit=crop&q=80&w=1200',
+  internationalCargo: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=1200',
   railTrain: '/rail_cargo.jpg',
   warehouse: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1200',
+  faqSupport: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=1200',
   gifting: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&q=80&w=1200',
   airplaneServicesHero: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=1200',
   trackingHeroBg: 'https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&q=80&w=2000',
@@ -78,7 +79,7 @@ export const SERVICES_PREVIEW = [
     title: 'International Logistics',
     description: 'Domestic air freight express with day-definite next day (2,000+ pincodes) and second day (3,000+ pincodes) delivery.',
     path: '/services#international',
-    image: IMAGES.airCargo,
+    image: IMAGES.internationalCargo,
   },
   {
     id: 'ptl-ftl',
@@ -173,7 +174,7 @@ export const SERVICES_DETAILED = [
     subtitle: 'Express Domestic Air Freight with Day-Definite Speed',
     description: 'Our domestic air freight express services provide day-definite delivery, giving your business the predictability and speed needed to compete globally. We offer Next Day Delivery (Milk Run) to over 2,000 pincodes and Second Day Delivery (Milk Run) to over 3,000 pincodes using state-of-the-art infrastructure and live milestone tracking.',
     features: ['Next Day Delivery (2,000+ Pincodes)', 'Second Day Delivery (3,000+ Pincodes)', 'High Priority Air Freight', 'Real-Time Flight & Waybill Tracking'],
-    image: IMAGES.airCargo,
+    image: IMAGES.internationalCargo,
     icon: 'plane',
     layout: 'image-right'
   },

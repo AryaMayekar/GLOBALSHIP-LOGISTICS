@@ -1,4 +1,5 @@
 import React from 'react';
+import { IMAGES } from '../../constants/data';
 
 const FAQIllustration = ({ className = "" }) => {
   return (
@@ -6,11 +7,11 @@ const FAQIllustration = ({ className = "" }) => {
       {/* Real High-Resolution Logistics Image */}
       <div className="relative h-[250px] sm:h-[340px] md:h-[420px] w-full overflow-hidden bg-navy-950">
         <img
-          src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1200"
+          src={IMAGES.faqSupport}
           alt="Logistics FAQs Support"
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
           onError={(e) => {
-            e.target.src = 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=1200';
+            e.target.src = IMAGES.helpSupport;
           }}
         />
 

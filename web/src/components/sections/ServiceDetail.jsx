@@ -90,7 +90,7 @@ const ServiceDetail = ({ service }) => {
                   className="w-full h-[250px] sm:h-[350px] md:h-[420px] object-cover group-hover:scale-105 transition-transform duration-700"
                   onError={(e) => {
                     e.target.onerror = null;
-                    e.target.src = '/rail_cargo.jpg';
+                    e.target.src = '/logo_gsl.png';
                   }}
                 />
               </div>
