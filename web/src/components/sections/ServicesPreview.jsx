@@ -9,15 +9,19 @@ const ServicesPreview = () => {
   const bottomRow = SERVICES_PREVIEW.slice(3, 5);
 
   const renderCard = (service, idx) => (
-    <motion.div
+    <Link
       key={service.id}
+      to={service.path}
+      className="block group"
+    >
+      <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: idx * 0.1, duration: 0.6 }}
       whileHover={{ y: -6 }}
-      className="bg-[#ECEFF3] rounded-2xl overflow-hidden shadow-lg flex flex-col justify-between transition-all duration-300 group"
-    >
+      className="bg-[#ECEFF3] rounded-2xl overflow-hidden shadow-lg flex flex-col justify-between transition-all duration-300"
+      >
       {/* Top Image or Graphic Area */}
       <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-200">
         {service.isGraphic ? (
@@ -36,7 +40,7 @@ const ServicesPreview = () => {
         )}
 
         {/* Centered White Serif Badge Overlay */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none p-3 sm:p-4">
+        <div className="absolute inset-0 flex items-end justify-center pointer-events-none p-3 sm:p-4">
           <div className="bg-white/95 backdrop-blur-sm px-4 py-1.5 sm:px-6 sm:py-2 rounded-xl shadow-md border border-white/60">
             <h3 className="font-serif text-base sm:text-xl md:text-2xl font-bold text-navy-900 text-center tracking-wide">
               {service.title}
@@ -51,15 +55,13 @@ const ServicesPreview = () => {
           {service.description}
         </p>
 
-        <Link
-          to={service.path}
-          className="font-serif font-bold text-navy-900 hover:text-gold-600 transition-colors inline-flex items-center text-sm sm:text-base self-start group/link"
-        >
+        <div className="font-serif font-bold text-navy-900 group-hover:text-gold-600 transition-colors inline-flex items-center text-sm sm:text-base self-start">
           <span>Know more</span>
-          <span className="ml-1.5 transform group-hover/link:translate-x-1.5 transition-transform duration-200">→</span>
-        </Link>
+          <span className="ml-1.5 transform group-hover:translate-x-1.5 transition-transform duration-200">→</span>
+        </div>
       </div>
-    </motion.div>
+      </motion.div>
+    </Link>
   );
 
   return (

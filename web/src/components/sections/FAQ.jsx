@@ -46,30 +46,28 @@ const FAQ = () => {
           </div>
 
           {/* Right Column: Accordion with Blue Side Bar & Gold Highlight on Opened FAQ */}
-          <div className="lg:col-span-7 py-1 sm:py-2 space-y-3 sm:space-y-5">
+          <div className="lg:col-span-7 self-center py-1 sm:py-2 space-y-3 sm:space-y-5">
             {FAQ_DATA.map((faq, idx) => {
               const isOpen = openIndex === idx;
 
               return (
                 <div
                   key={idx}
-                  className={`transition-all duration-300 border-l-[3.5px] sm:border-l-[4px] pl-4 sm:pl-8 pb-3.5 sm:pb-5 border-b border-slate-100 last:border-b-0 ${
+                  className={`transition-all duration-300 border-l-[3.5px] sm:border-l-[4px] pl-4 sm:pl-8 pt-3.5 sm:pt-5 pb-3.5 sm:pb-5 border-b border-slate-100 last:border-b-0 ${
                     isOpen ? 'border-l-gold-500' : 'border-l-[#081935]'
                   }`}
                 >
                   <button
                     onClick={() => toggleAccordion(idx)}
-                    className="w-full flex justify-between items-start text-left group focus:outline-none py-1"
+                    className="w-full flex justify-between items-center text-left group focus:outline-none py-1"
                   >
                     <span
-                      className={`font-serif text-sm sm:text-base md:text-lg font-bold transition-colors pr-3 sm:pr-4 ${
-                        isOpen ? 'text-gold-600' : 'text-navy-900 group-hover:text-gold-600'
-                      }`}
+                      className="font-serif text-sm sm:text-base md:text-lg font-bold text-navy-900 pr-3 sm:pr-4"
                     >
                       {faq.question}
                     </span>
                     <span
-                      className={`text-xs sm:text-sm font-sans font-bold flex-shrink-0 mt-0.5 transition-transform duration-300 ${
+                      className={`text-xs sm:text-sm font-sans font-bold flex-shrink-0 transition-transform duration-300 ${
                         isOpen ? 'text-gold-500' : 'text-navy-900 group-hover:text-gold-500'
                       }`}
                     >

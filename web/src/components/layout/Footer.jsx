@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Facebook, Twitter, Linkedin, MapPin, Phone, Mail } from 'lucide-react';
 import Logo from '../common/Logo';
 import { COMPANY_PROFILE } from '../../constants/data';
 
@@ -29,21 +29,34 @@ const Footer = () => {
           
           {/* Column 1: Contact */}
           <div className="space-y-3 sm:space-y-4">
-            <h3 className="font-serif text-lg sm:text-xl font-bold text-white mb-2 sm:mb-4">
-              Contact
-            </h3>
-            <div className="text-slate-300 space-y-1 text-sm sm:text-base">
-              <p>Shop No 25, B wing, Harias Dream Park,</p>
-              <p>Near Indian Bank, Hatkesh Udyog Nagar</p>
-              <div className="pt-2 space-y-1 text-xs sm:text-sm font-sans">
-                <p className="text-gold-400 font-semibold">
-                  <a href="tel:+919137024187" className="hover:underline">+91 91370 24187</a> / <a href="tel:+919833889455" className="hover:underline">+91 98338 89455</a>
-                </p>
-                <p>
+            <div className="text-slate-300 space-y-4 text-sm sm:text-base">
+              <div className="flex items-start gap-3">
+                <MapPin size={19} className="mt-0.5 flex-shrink-0 text-gold-400" aria-hidden="true" />
+                <div>
+                  <p className="font-serif font-bold text-white">Address</p>
+                  <p>Shop No 25, B wing, Harias Dream Park,</p>
+                  <p>Near Indian Bank, Hatkesh Udyog Nagar</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Phone size={18} className="mt-0.5 flex-shrink-0 text-gold-400" aria-hidden="true" />
+                <div>
+                  <p className="font-serif font-bold text-white">Phone</p>
+                  <p className="text-gold-400 font-semibold whitespace-nowrap">
+                    <a href="tel:+919137024187" className="hover:underline whitespace-nowrap">+91 91370 24187</a>
+                    <span className="text-slate-400"> / </span>
+                    <a href="tel:+919833889455" className="hover:underline whitespace-nowrap">+91 98338 89455</a>
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Mail size={18} className="mt-0.5 flex-shrink-0 text-gold-400" aria-hidden="true" />
+                <div className="min-w-0">
+                  <p className="font-serif font-bold text-white">Email</p>
                   <a href="mailto:globalshiplogistics96@gmail.com" className="text-slate-300 hover:text-gold-400 hover:underline break-all">
                     globalshiplogistics96@gmail.com
                   </a>
-                </p>
+                </div>
               </div>
             </div>
             

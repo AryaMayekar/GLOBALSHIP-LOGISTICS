@@ -52,13 +52,13 @@ const Hero = () => {
           >
             <Link
               to="/track"
-              className="px-6 sm:px-8 py-3.5 rounded-xl bg-navy-900/90 hover:bg-navy-900 border-2 border-gold-500 text-gold-400 font-serif font-bold text-sm sm:text-base transition-all duration-300 shadow-md hover:shadow-lg text-center"
+              className="site-button w-full sm:w-48 px-6 sm:px-8 py-3.5 rounded-xl bg-navy-900/90 hover:bg-navy-900 border-2 border-gold-500 text-gold-400 font-serif font-bold text-sm sm:text-base transition-all duration-300 shadow-md hover:shadow-lg text-center"
             >
               Track Shipment
             </Link>
             <Link
               to="/contact"
-              className="px-6 sm:px-8 py-3.5 rounded-xl bg-gold-400 hover:bg-gold-500 text-navy-950 font-serif font-bold text-sm sm:text-base transition-all duration-300 shadow-md hover:shadow-lg text-center"
+              className="site-button w-full sm:w-48 px-6 sm:px-8 py-3.5 rounded-xl bg-gold-400 hover:bg-gold-500 text-navy-950 font-serif font-bold text-sm sm:text-base transition-all duration-300 shadow-md hover:shadow-lg text-center"
             >
               Contact Us
             </Link>

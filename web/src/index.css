@@ -12,6 +12,18 @@
 }
 
 @layer components {
+  .contact-phone-input {
+    @apply flex items-center w-full;
+  }
+
+  .contact-phone-input .PhoneInputCountry {
+    @apply flex items-center self-stretch px-3 border-r border-slate-200;
+  }
+
+  .contact-phone-input .PhoneInputInput {
+    @apply min-w-0 flex-1 border-0 bg-transparent px-3 py-0 text-sm text-navy-900 outline-none;
+  }
+
   /* Brand Buttons */
   .btn-gold {
     @apply bg-gold-400 hover:bg-gold-500 text-navy-950 font-semibold px-7 py-3 rounded-md transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 inline-flex items-center justify-center;
@@ -19,6 +31,10 @@
   
   .btn-outline-gold {
     @apply border-2 border-gold-400 text-gold-400 hover:bg-gold-400 hover:text-navy-950 font-semibold px-7 py-3 rounded-md transition-all duration-300 active:scale-95 inline-flex items-center justify-center;
+  }
+
+  .site-button {
+    @apply transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl active:translate-y-0;
   }
 
   /* Section Containers */

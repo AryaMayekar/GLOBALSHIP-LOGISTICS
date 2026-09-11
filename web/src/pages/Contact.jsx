@@ -1,17 +1,38 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle2, Headphones, PackageSearch, ShieldAlert, Sparkles } from 'lucide-react';
+import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 import { COMPANY_PROFILE } from '../constants/data';
 
 const QUERY_CATEGORIES = [
-  { id: 'tracking', label: 'Tracking & Delivery Status', icon: PackageSearch },
-  { id: 'booking', label: 'Booking & Freight Inquiry', icon: Headphones },
-  { id: 'gifting', label: 'Corporate Gifting & Custom Packaging', icon: Sparkles },
-  { id: 'complaint', label: 'Issue Resolution & Claims', icon: ShieldAlert },
+  {
+    id: 'tracking',
+    label: 'Tracking & Delivery Status',
+    description: 'Get updates on your shipment location and delivery progress.',
+    icon: PackageSearch,
+  },
+  {
+    id: 'booking',
+    label: 'Booking & Freight Inquiry',
+    description: 'Discuss shipment bookings, freight options, and delivery requirements.',
+    icon: Headphones,
+  },
+  {
+    id: 'gifting',
+    label: 'Corporate Gifting & Custom Packaging',
+    description: 'Explore tailored gifting solutions and packaging for your business.',
+    icon: Sparkles,
+  },
+  {
+    id: 'complaint',
+    label: 'Issue Resolution & Claims',
+    description: 'Report shipment concerns and get support with claims or resolutions.',
+    icon: ShieldAlert,
+  },
 ];
 
 const Contact = () => {
-  const [selectedCategory, setSelectedCategory] = useState('booking');
   const [formData, setFormData] = useState({
     fullName: '',
     phone: '',
@@ -21,10 +42,81 @@ const Contact = () => {
     subject: '',
     message: ''
   });
+  const [phoneError, setPhoneError] = useState('');
+  const [fieldErrors, setFieldErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+
+  const validatePhone = (value) => {
+    if (!value) {
+      return 'Phone number is required.';
+    }
+
+    if (!isValidPhoneNumber(value)) {
+      return 'Phone number is not valid for the selected country.';
+    }
+
+    return '';
+  };
+
+  const validateField = (field, value) => {
+    const trimmedValue = value.trim();
+
+    if (['fullName', 'email', 'subject', 'message'].includes(field) && !trimmedValue) {
+      return `${field === 'fullName' ? 'Full name' : field.charAt(0).toUpperCase() + field.slice(1)} is required.`;
+    }
+
+    if (field === 'fullName' && !/^[a-zA-Z\s.'-]+$/.test(trimmedValue)) {
+      return 'Full name can contain letters, spaces, apostrophes, and hyphens only.';
+    }
+
+    if (field === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedValue)) {
+      return 'Email address is not valid.';
+    }
+
+    if (field === 'subject' && trimmedValue.length < 3) {
+      return 'Subject must be at least 3 characters.';
+    }
+
+    if (field === 'message' && trimmedValue.length < 10) {
+      return 'Message must be at least 10 characters.';
+    }
+
+    if (field === 'shipmentId' && trimmedValue && !/^[a-zA-Z0-9-]+$/.test(trimmedValue)) {
+      return 'Shipment ID can contain letters, numbers, and hyphens only.';
+    }
+
+    return '';
+  };
+
+  const updateField = (field, value) => {
+    setFormData((currentData) => ({ ...currentData, [field]: value }));
+    setFieldErrors((currentErrors) => ({
+      ...currentErrors,
+      [field]: validateField(field, value),
+    }));
+  };
+
+  const requiredFields = ['fullName', 'email', 'subject', 'message'];
+  const hasMissingRequiredField = requiredFields.some((field) => !formData[field].trim())
+    || !formData.phone;
+  const hasFormErrors = Boolean(phoneError)
+    || hasMissingRequiredField
+    || Object.values(fieldErrors).some(Boolean);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const validationError = validatePhone(formData.phone);
+    const nextFieldErrors = Object.fromEntries(
+      Object.entries(formData).map(([field, value]) => [field, validateField(field, value)])
+    );
+
+    setPhoneError(validationError);
+    setFieldErrors(nextFieldErrors);
+
+    if (validationError || Object.values(nextFieldErrors).some(Boolean)) {
+      return;
+    }
+
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
@@ -37,6 +129,8 @@ const Contact = () => {
         subject: '',
         message: ''
       });
+      setPhoneError('');
+      setFieldErrors({});
     }, 5000);
   };
 
@@ -60,38 +154,31 @@ const Contact = () => {
               </span>
             </h1>
             <p className="text-slate-600 font-sans text-sm sm:text-base md:text-lg mt-2 sm:mt-3 max-w-2xl">
-              Select your inquiry type or fill in the request form below. Our customer support desk will assist you promptly.
+              These are the types of inquiries our team handles with care. Fill in the request form below and our customer support desk will assist you promptly.
             </p>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {QUERY_CATEGORIES.map((cat) => {
               const Icon = cat.icon;
-              const isSelected = selectedCategory === cat.id;
               return (
-                <button
+                <div
                   key={cat.id}
-                  type="button"
-                  onClick={() => setSelectedCategory(cat.id)}
-                  className={`p-3.5 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl text-left transition-all duration-300 border flex flex-col justify-between ${
-                    isSelected
-                      ? 'bg-[#081935] text-white border-gold-500 shadow-xl scale-[1.02]'
-                      : 'bg-white text-navy-900 border-slate-200 hover:border-gold-400 hover:shadow-md'
-                  }`}
+                  className="p-3.5 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl text-left border border-[#081935] flex flex-col justify-between bg-[#081935] text-white"
                 >
-                  <div className={`w-9 h-9 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4 ${
-                    isSelected ? 'bg-gold-400 text-navy-950' : 'bg-surface-100 text-gold-600'
-                  }`}>
-                    <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
-                  </div>
-                  <div>
-                    <h3 className={`font-serif text-xs sm:text-sm md:text-base font-bold mb-1 leading-snug ${isSelected ? 'text-gold-400' : 'text-navy-900'}`}>
+                  <div className="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4">
+                    <div className="w-9 h-9 sm:w-11 sm:h-11 md:w-12 md:h-12 flex-shrink-0 rounded-lg sm:rounded-xl flex items-center justify-center bg-gold-400 text-navy-950">
+                      <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                    </div>
+                    <h3 className="font-serif text-xs sm:text-sm md:text-base font-bold leading-snug text-gold-400">
                       {cat.label}
                     </h3>
-                    <p className={`text-[10px] sm:text-xs leading-relaxed hidden sm:block ${isSelected ? 'text-slate-200' : 'text-slate-600'}`}>
-                      Click to prefill request category
+                  </div>
+                  <div>
+                    <p className="text-[10px] sm:text-xs leading-relaxed hidden sm:block text-slate-200">
+                      {cat.description}
                     </p>
                   </div>
-                </button>
+                </div>
               );
             })}
           </div>
@@ -108,10 +195,10 @@ const Contact = () => {
               <div className="bg-surface-50 p-5 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl shadow-lg border border-slate-200">
                 <div className="mb-8">
                   <h2 className="font-serif text-2xl sm:text-3xl font-bold text-navy-900 mb-2">
-                    Submit Your Request
+                    How Can We Help?
                   </h2>
                   <p className="text-slate-600 text-sm font-sans">
-                    Please provide your contact details below. Our customer support desk will attend to your query promptly.
+                    Please provide your details and query below. Our support team will get back to you promptly.
                   </p>
                 </div>
 
@@ -136,23 +223,45 @@ const Contact = () => {
                           type="text"
                           required
                           value={formData.fullName}
-                          onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                          onChange={(e) => updateField('fullName', e.target.value)}
                           placeholder="e.g. Rahul Sharma"
-                          className="w-full bg-white border-2 border-slate-200 focus:border-gold-500 rounded-xl px-4 py-3 text-sm text-navy-900 focus:outline-none transition-colors"
+                          className={`w-full bg-white border-2 rounded-xl px-4 py-3 text-sm text-navy-900 focus:outline-none transition-colors ${
+                            fieldErrors.fullName ? 'border-red-500 focus:border-red-600' : 'border-slate-200 focus:border-gold-500'
+                          }`}
                         />
+                        {fieldErrors.fullName && <p className="mt-2 text-sm font-semibold text-red-600" role="alert">{fieldErrors.fullName}</p>}
                       </div>
                       <div>
                         <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2 font-serif">
                           Mobile Number <span className="text-red-500">*</span>
                         </label>
-                        <input
-                          type="tel"
-                          required
-                          value={formData.phone}
-                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          placeholder="+91 98000 00000"
-                          className="w-full bg-white border-2 border-slate-200 focus:border-gold-500 rounded-xl px-4 py-3 text-sm text-navy-900 focus:outline-none transition-colors"
-                        />
+                        <div className={`rounded-xl bg-white border-2 focus-within:border-gold-500 transition-colors ${
+                          phoneError ? 'border-red-500' : 'border-slate-200'
+                        }`}>
+                          <PhoneInput
+                            international
+                            defaultCountry="IN"
+                            withCountryCallingCode
+                            countryCallingCodeEditable={false}
+                            value={formData.phone || undefined}
+                            onChange={(nextPhone) => {
+                              setFormData({ ...formData, phone: nextPhone || '' });
+                              setPhoneError(nextPhone ? validatePhone(nextPhone) : '');
+                            }}
+                            aria-invalid={Boolean(phoneError)}
+                            aria-describedby={phoneError ? 'contact-phone-error' : undefined}
+                            className="contact-phone-input min-h-[48px]"
+                          />
+                        </div>
+                        {phoneError && (
+                          <p
+                            id="contact-phone-error"
+                            role="alert"
+                            className="mt-2 text-sm font-semibold text-red-600"
+                          >
+                            {phoneError}
+                          </p>
+                        )}
                       </div>
                     </div>
 
@@ -166,10 +275,13 @@ const Contact = () => {
                           type="email"
                           required
                           value={formData.email}
-                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          onChange={(e) => updateField('email', e.target.value)}
                           placeholder="email@company.com"
-                          className="w-full bg-white border-2 border-slate-200 focus:border-gold-500 rounded-xl px-4 py-3 text-sm text-navy-900 focus:outline-none transition-colors"
+                          className={`w-full bg-white border-2 rounded-xl px-4 py-3 text-sm text-navy-900 focus:outline-none transition-colors ${
+                            fieldErrors.email ? 'border-red-500 focus:border-red-600' : 'border-slate-200 focus:border-gold-500'
+                          }`}
                         />
+                        {fieldErrors.email && <p className="mt-2 text-sm font-semibold text-red-600" role="alert">{fieldErrors.email}</p>}
                       </div>
                       <div>
                         <div className="flex justify-between items-center mb-2">
@@ -181,10 +293,13 @@ const Contact = () => {
                         <input
                           type="text"
                           value={formData.shipmentId}
-                          onChange={(e) => setFormData({ ...formData, shipmentId: e.target.value })}
+                          onChange={(e) => updateField('shipmentId', e.target.value)}
                           placeholder="e.g. GSL-982341 or AWB No."
-                          className="w-full bg-white border-2 border-slate-200 focus:border-gold-500 rounded-xl px-4 py-3 text-sm text-navy-900 focus:outline-none transition-colors placeholder:text-slate-400"
+                          className={`w-full bg-white border-2 rounded-xl px-4 py-3 text-sm text-navy-900 focus:outline-none transition-colors placeholder:text-slate-400 ${
+                            fieldErrors.shipmentId ? 'border-red-500 focus:border-red-600' : 'border-slate-200 focus:border-gold-500'
+                          }`}
                         />
+                        {fieldErrors.shipmentId && <p className="mt-2 text-sm font-semibold text-red-600" role="alert">{fieldErrors.shipmentId}</p>}
                       </div>
                     </div>
 
@@ -200,7 +315,7 @@ const Contact = () => {
                         <input
                           type="text"
                           value={formData.company}
-                          onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                          onChange={(e) => updateField('company', e.target.value)}
                           placeholder="Company Name"
                           className="w-full bg-white border-2 border-slate-200 focus:border-gold-500 rounded-xl px-4 py-3 text-sm text-navy-900 focus:outline-none transition-colors"
                         />
@@ -213,10 +328,13 @@ const Contact = () => {
                           type="text"
                           required
                           value={formData.subject}
-                          onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                          onChange={(e) => updateField('subject', e.target.value)}
                           placeholder="Brief topic of inquiry"
-                          className="w-full bg-white border-2 border-slate-200 focus:border-gold-500 rounded-xl px-4 py-3 text-sm text-navy-900 focus:outline-none transition-colors"
+                          className={`w-full bg-white border-2 rounded-xl px-4 py-3 text-sm text-navy-900 focus:outline-none transition-colors ${
+                            fieldErrors.subject ? 'border-red-500 focus:border-red-600' : 'border-slate-200 focus:border-gold-500'
+                          }`}
                         />
+                        {fieldErrors.subject && <p className="mt-2 text-sm font-semibold text-red-600" role="alert">{fieldErrors.subject}</p>}
                       </div>
                     </div>
 
@@ -229,19 +347,23 @@ const Contact = () => {
                         rows={4}
                         required
                         value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        onChange={(e) => updateField('message', e.target.value)}
                         placeholder="Please elaborate your query, origin/destination pincodes, parcel details, or specific requirements..."
-                        className="w-full bg-white border-2 border-slate-200 focus:border-gold-500 rounded-xl px-4 py-3 text-sm text-navy-900 focus:outline-none transition-colors"
+                        className={`w-full bg-white border-2 rounded-xl px-4 py-3 text-sm text-navy-900 focus:outline-none transition-colors ${
+                          fieldErrors.message ? 'border-red-500 focus:border-red-600' : 'border-slate-200 focus:border-gold-500'
+                        }`}
                       ></textarea>
+                      {fieldErrors.message && <p className="mt-2 text-sm font-semibold text-red-600" role="alert">{fieldErrors.message}</p>}
                     </div>
 
                     {/* Submit Button */}
                     <button
                       type="submit"
-                      className="w-full bg-gold-400 hover:bg-gold-500 active:scale-[0.98] text-navy-950 font-serif font-bold text-base py-4 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center space-x-2"
+                      disabled={hasFormErrors}
+                      className="site-button w-full bg-gold-400 hover:bg-gold-500 active:scale-[0.98] text-navy-950 font-serif font-bold text-base py-4 px-5 rounded-xl shadow-md hover:shadow-lg transition-all flex flex-row flex-nowrap items-center justify-center gap-2 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-slate-500 disabled:shadow-none disabled:hover:bg-slate-300 disabled:hover:translate-y-0"
                     >
-                      <Send size={18} />
-                      <span>Submit Request</span>
+                      <span className="whitespace-nowrap">Submit Request</span>
+                      <Send size={18} className="shrink-0" />
                     </button>
                   </form>
                 )}
@@ -253,19 +375,19 @@ const Contact = () => {
               <div>
                 <h2 className="font-serif text-2xl sm:text-3xl font-bold text-navy-900 mb-2">
                   <span className="relative inline-block pb-1.5">
-                    Corporate Office
+                    Contact & Support
                     <span className="absolute bottom-0 left-0 w-full h-[3.5px] bg-gold-500 rounded-full"></span>
                   </span>
                 </h2>
                 <p className="text-slate-600 font-sans mt-3 text-sm">
-                  Visit our regional head office or contact our logistics customer assistance desk.
+                  Visit our head office or contact our logistics customer assistance desk.
                 </p>
               </div>
 
               <div className="bg-surface-50 p-8 rounded-3xl border border-slate-200 space-y-6 shadow-sm">
                 {/* Office Address */}
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#081935] flex items-center justify-center text-gold-400 flex-shrink-0 mt-0.5 shadow">
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 rounded-xl bg-[#081935] flex items-center justify-center text-gold-400 flex-shrink-0 shadow">
                     <MapPin size={24} />
                   </div>
                   <div>
@@ -277,8 +399,8 @@ const Contact = () => {
                 </div>
 
                 {/* Operating Hours */}
-                <div className="flex items-start space-x-4 pt-4 border-t border-slate-200/80">
-                  <div className="w-12 h-12 rounded-xl bg-gold-400/20 border border-gold-500/40 flex items-center justify-center text-navy-900 flex-shrink-0 mt-0.5 shadow-sm">
+                <div className="flex items-center space-x-4 pt-4 border-t border-slate-200/80">
+                  <div className="w-12 h-12 rounded-xl bg-[#081935] flex items-center justify-center text-gold-400 flex-shrink-0 shadow">
                     <Clock size={24} />
                   </div>
                   <div>
@@ -291,12 +413,12 @@ const Contact = () => {
                 </div>
 
                 {/* Phone Assistance */}
-                <div className="flex items-start space-x-4 pt-4 border-t border-slate-200/80">
-                  <div className="w-12 h-12 rounded-xl bg-[#081935] flex items-center justify-center text-gold-400 flex-shrink-0 mt-0.5 shadow">
+                <div className="flex items-center space-x-4 pt-4 border-t border-slate-200/80">
+                  <div className="w-12 h-12 rounded-xl bg-[#081935] flex items-center justify-center text-gold-400 flex-shrink-0 shadow">
                     <Phone size={24} />
                   </div>
                   <div>
-                    <h3 className="font-serif text-lg font-bold text-navy-900">Phone Assistance</h3>
+                    <h3 className="font-serif text-lg font-bold text-navy-900">Phone</h3>
                     <div className="space-y-0.5 mt-1 font-sans text-sm text-slate-700">
                       <p>
                         <a href="tel:+919137024187" className="hover:text-gold-600 font-semibold transition-colors">
@@ -313,12 +435,12 @@ const Contact = () => {
                 </div>
 
                 {/* Direct Email Support */}
-                <div className="flex items-start space-x-4 pt-4 border-t border-slate-200/80">
-                  <div className="w-12 h-12 rounded-xl bg-[#081935] flex items-center justify-center text-gold-400 flex-shrink-0 mt-0.5 shadow">
+                <div className="flex items-center space-x-4 pt-4 border-t border-slate-200/80">
+                  <div className="w-12 h-12 rounded-xl bg-[#081935] flex items-center justify-center text-gold-400 flex-shrink-0 shadow">
                     <Mail size={24} />
                   </div>
                   <div>
-                    <h3 className="font-serif text-lg font-bold text-navy-900">Email Assistance</h3>
+                    <h3 className="font-serif text-lg font-bold text-navy-900">Email</h3>
                     <p className="text-slate-700 font-sans text-sm mt-1 font-medium">
                       <a href="mailto:globalshiplogistics96@gmail.com" className="hover:text-gold-600 hover:underline">
                         globalshiplogistics96@gmail.com
@@ -329,18 +451,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* Service Assurance Card */}
-              <div className="bg-[#081935] text-white p-8 rounded-3xl shadow-xl border-t-4 border-gold-500">
-                <h3 className="font-serif text-xl font-bold text-gold-400 mb-2">
-                  Carrier Network Coverage
-                </h3>
-                <p className="text-slate-200 text-sm font-sans leading-relaxed mb-4">
-                  We coordinate with leading carrier providers to offer day-definite surface logistics over 19,000+ pincodes and next-day/second-day air express.
-                </p>
-                <div className="text-xs text-gold-300 font-serif">
-                  • 100% Real-Time Milestone Tracking & Resolution
-                </div>
-              </div>
+              
             </div>
 
           </div>

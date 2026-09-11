@@ -64,10 +64,12 @@ const About = () => {
               viewport={{ once: true }}
               className="bg-white p-6 sm:p-8 md:p-10 rounded-2xl shadow-lg border-t-4 border-gold-500 flex flex-col"
             >
-              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#081935] flex items-center justify-center text-gold-400 mb-5 sm:mb-6">
-                <Target size={24} className="sm:w-7 sm:h-7" />
+              <div className="flex items-center gap-3 mb-5 sm:mb-6">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 rounded-2xl bg-[#081935] flex items-center justify-center text-gold-400">
+                  <Target size={24} className="sm:w-7 sm:h-7" />
+                </div>
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-navy-900">Our Vision</h3>
               </div>
-              <h3 className="font-serif text-xl sm:text-2xl font-bold text-navy-900 mb-3 sm:mb-4">Our Vision</h3>
               <p className="text-slate-700 font-sans text-sm sm:text-base leading-relaxed flex-grow">
                 {COMPANY_PROFILE.vision}
               </p>
@@ -81,10 +83,12 @@ const About = () => {
               transition={{ delay: 0.15 }}
               className="bg-white p-6 sm:p-8 md:p-10 rounded-2xl shadow-lg border-t-4 border-[#081935] flex flex-col"
             >
-              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#081935] flex items-center justify-center text-gold-400 mb-5 sm:mb-6">
-                <Compass size={24} className="sm:w-7 sm:h-7" />
+              <div className="flex items-center gap-3 mb-5 sm:mb-6">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 rounded-2xl bg-[#081935] flex items-center justify-center text-gold-400">
+                  <Compass size={24} className="sm:w-7 sm:h-7" />
+                </div>
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-navy-900">Our Mission</h3>
               </div>
-              <h3 className="font-serif text-xl sm:text-2xl font-bold text-navy-900 mb-3 sm:mb-4">Our Mission</h3>
               <p className="text-slate-700 font-sans text-sm sm:text-base leading-relaxed flex-grow">
                 {COMPANY_PROFILE.mission}
               </p>
@@ -98,10 +102,12 @@ const About = () => {
               transition={{ delay: 0.3 }}
               className="bg-white p-6 sm:p-8 md:p-10 rounded-2xl shadow-lg border-t-4 border-gold-500 flex flex-col"
             >
-              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#081935] flex items-center justify-center text-gold-400 mb-5 sm:mb-6">
-                <Award size={24} className="sm:w-7 sm:h-7" />
+              <div className="flex items-center gap-3 mb-5 sm:mb-6">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 rounded-2xl bg-[#081935] flex items-center justify-center text-gold-400">
+                  <Award size={24} className="sm:w-7 sm:h-7" />
+                </div>
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-navy-900">Our Values</h3>
               </div>
-              <h3 className="font-serif text-xl sm:text-2xl font-bold text-navy-900 mb-3 sm:mb-4">Our Values</h3>
               <p className="text-slate-700 font-sans text-sm sm:text-base leading-relaxed flex-grow">
                 {COMPANY_PROFILE.values}
               </p>
