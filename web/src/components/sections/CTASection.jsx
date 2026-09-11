@@ -31,7 +31,7 @@ const CTASection = () => {
           {/* Gold Button */}
           <Link
             to="/contact"
-            className="site-button w-full sm:w-auto px-8 sm:px-10 py-3 sm:py-3.5 rounded-xl bg-gold-400 hover:bg-gold-500 text-navy-950 font-serif font-bold text-sm sm:text-base transition-all duration-300 shadow-md hover:shadow-lg inline-flex items-center justify-center text-center"
+            className="site-button w-full sm:w-auto lg:w-72 px-8 sm:px-10 py-3 sm:py-3.5 rounded-xl bg-gold-400 hover:bg-gold-500 text-navy-950 font-serif font-bold text-sm sm:text-base transition-all duration-300 shadow-md hover:shadow-lg inline-flex items-center justify-center text-center"
           >
             Contact Us
           </Link>
