@@ -1,9 +1,9 @@
 # Robots.txt for GlobalShip Logistics
-# https://globalshiplogistics.com
+# https://globalshiplogistics.in
 
 User-agent: *
 Allow: /
 
 # Sitemaps and LLM Discovery
-Sitemap: https://globalshiplogistics.com/sitemap.xml
-LLMs: https://globalshiplogistics.com/llms.txt
+Sitemap: https://globalshiplogistics.in/sitemap.xml
+LLMs: https://globalshiplogistics.in/llms.txt

@@ -4,12 +4,12 @@
 
 ## Core Capabilities & Services
 
-- [Domestic Logistics](https://globalshiplogistics.com/services#domestic): Standard Premium ground-based delivery network covering over 19,000+ pincodes across India with day-definite reliability and competitive B2B commercial rates.
-- [International & Air Logistics](https://globalshiplogistics.com/services#international): Day-definite air cargo express with next-day (2,000+ pincodes) and second-day (3,000+ pincodes) milk run delivery.
-- [PTL & FTL Freight](https://globalshiplogistics.com/services#ptl-ftl): Flexible part-truckload (PTL/LTL) and dedicated full-truckload (FTL) commercial transportation across national corridors.
-- [Rail Logistics](https://globalshiplogistics.com/services#rail): High-capacity, cost-effective rail freight connecting major industrial hubs and production centers across India.
-- [Warehousing & Inventory Management](https://globalshiplogistics.com/services#warehousing): Secure warehousing, collation, customized packaging, and distributed inventory management.
-- [Corporate Gifting & Packaging](https://globalshiplogistics.com/): End-to-end gift procurement, custom branding, personalized packaging, and doorstep distribution.
+- [Domestic Logistics](https://globalshiplogistics.in/services#domestic): Standard Premium ground-based delivery network covering over 19,000+ pincodes across India with day-definite reliability and competitive B2B commercial rates.
+- [International & Air Logistics](https://globalshiplogistics.in/services#international): Day-definite air cargo express with next-day (2,000+ pincodes) and second-day (3,000+ pincodes) milk run delivery.
+- [PTL & FTL Freight](https://globalshiplogistics.in/services#ptl-ftl): Flexible part-truckload (PTL/LTL) and dedicated full-truckload (FTL) commercial transportation across national corridors.
+- [Rail Logistics](https://globalshiplogistics.in/services#rail): High-capacity, cost-effective rail freight connecting major industrial hubs and production centers across India.
+- [Warehousing & Inventory Management](https://globalshiplogistics.in/services#warehousing): Secure warehousing, collation, customized packaging, and distributed inventory management.
+- [Corporate Gifting & Packaging](https://globalshiplogistics.in/): End-to-end gift procurement, custom branding, personalized packaging, and doorstep distribution.
 
 ## Key Network Scale & Metrics
 
@@ -26,14 +26,14 @@
 - **Email**: globalshiplogistics96@gmail.com
 - **Phone Assistance**: +91 91370 24187, +91 98338 89455
 - **Operating Hours**: Monday – Saturday: 9:00 AM – 7:00 PM IST (24x7 online tracking support)
-- **Website**: https://globalshiplogistics.com
+- **Website**: https://globalshiplogistics.in
 
 ## Site Index & Canonical Links
 
-- [Home / Overview](https://globalshiplogistics.com/): Primary landing page highlighting multi-modal logistics, client marquee, corporate gifting, and FAQs.
-- [Services](https://globalshiplogistics.com/services): Detailed overview of ground, air, PTL/FTL, rail, and warehousing services.
-- [Track Shipment](https://globalshiplogistics.com/track): Consignment tracking interface (AWB, Order ID, LRN, Mobile).
-- [About Us](https://globalshiplogistics.com/about): Vision, Mission, Values, Network Scale, and corporate profile.
-- [Contact Support](https://globalshiplogistics.com/contact): Customer service portal with category-based inquiry submission and direct helpline.
-- [Privacy Policy](https://globalshiplogistics.com/privacy): Data protection and privacy practices.
-- [Terms & Conditions](https://globalshiplogistics.com/terms): Operating terms and logistics cargo guidelines.
+- [Home / Overview](https://globalshiplogistics.in/): Primary landing page highlighting multi-modal logistics, client marquee, corporate gifting, and FAQs.
+- [Services](https://globalshiplogistics.in/services): Detailed overview of ground, air, PTL/FTL, rail, and warehousing services.
+- [Track Shipment](https://globalshiplogistics.in/track): Consignment tracking interface (AWB, Order ID, LRN, Mobile).
+- [About Us](https://globalshiplogistics.in/about): Vision, Mission, Values, Network Scale, and corporate profile.
+- [Contact Support](https://globalshiplogistics.in/contact): Customer service portal with category-based inquiry submission and direct helpline.
+- [Privacy Policy](https://globalshiplogistics.in/privacy): Data protection and privacy practices.
+- [Terms & Conditions](https://globalshiplogistics.in/terms): Operating terms and logistics cargo guidelines.
