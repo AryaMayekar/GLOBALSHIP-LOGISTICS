@@ -62,7 +62,7 @@ const About = () => {
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-white p-6 sm:p-8 md:p-10 rounded-2xl shadow-lg border-t-4 border-gold-500 flex flex-col"
+              className="bg-white p-6 sm:p-8 md:p-10 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-t-4 border-gold-500 flex flex-col"
             >
               <div className="flex items-center gap-3 mb-5 sm:mb-6">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 rounded-2xl bg-[#081935] flex items-center justify-center text-gold-400">
@@ -81,7 +81,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.15 }}
-              className="bg-white p-6 sm:p-8 md:p-10 rounded-2xl shadow-lg border-t-4 border-[#081935] flex flex-col"
+              className="bg-white p-6 sm:p-8 md:p-10 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-t-4 border-[#081935] flex flex-col"
             >
               <div className="flex items-center gap-3 mb-5 sm:mb-6">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 rounded-2xl bg-[#081935] flex items-center justify-center text-gold-400">
@@ -100,7 +100,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="bg-white p-6 sm:p-8 md:p-10 rounded-2xl shadow-lg border-t-4 border-gold-500 flex flex-col"
+              className="bg-white p-6 sm:p-8 md:p-10 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-t-4 border-gold-500 flex flex-col"
             >
               <div className="flex items-center gap-3 mb-5 sm:mb-6">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 rounded-2xl bg-[#081935] flex items-center justify-center text-gold-400">

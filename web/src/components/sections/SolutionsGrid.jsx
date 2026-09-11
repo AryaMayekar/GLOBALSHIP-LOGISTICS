@@ -47,7 +47,7 @@ const SolutionsGrid = () => {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.15, duration: 0.6 }}
               whileHover={{ y: -6 }}
-              className="bg-[#ECEFF3] p-6 sm:p-8 md:p-10 rounded-2xl transition-all duration-300 flex flex-col justify-start group hover:shadow-lg border border-slate-100"
+              className="bg-[#ECEFF3] p-6 sm:p-8 md:p-10 rounded-2xl shadow-lg transition-all duration-300 flex flex-col justify-start group hover:shadow-xl border border-slate-100"
             >
               {/* Distinct Service Icon Badge */}
               <div className="flex items-center space-x-3.5 sm:space-x-4 mb-4 sm:mb-6">
