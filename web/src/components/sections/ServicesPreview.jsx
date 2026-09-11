@@ -31,10 +31,11 @@ const ServicesPreview = () => {
         ) : (
           <img
             src={service.image}
-            alt={service.title}
+            alt={`${service.title} - GlobalShip Logistics`}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             onError={(e) => {
-              e.target.src = 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800';
+              e.target.onerror = null;
+              e.target.src = '/rail_cargo.jpg';
             }}
           />
         )}

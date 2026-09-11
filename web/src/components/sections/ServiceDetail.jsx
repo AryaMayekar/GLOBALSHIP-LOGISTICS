@@ -86,10 +86,11 @@ const ServiceDetail = ({ service }) => {
               <div className="relative overflow-hidden rounded-2xl shadow-xl border border-slate-100 group">
                 <img
                   src={service.image}
-                  alt={service.title}
+                  alt={`${service.title} - GlobalShip Logistics`}
                   className="w-full h-[250px] sm:h-[350px] md:h-[420px] object-cover group-hover:scale-105 transition-transform duration-700"
                   onError={(e) => {
-                    e.target.src = 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800';
+                    e.target.onerror = null;
+                    e.target.src = '/rail_cargo.jpg';
                   }}
                 />
               </div>

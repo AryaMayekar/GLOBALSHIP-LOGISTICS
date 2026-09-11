@@ -16,9 +16,9 @@ const Footer = () => {
           </div>
 
           {/* Slogan & Subheading */}
-          <h2 className="font-serif text-lg sm:text-2xl md:text-3xl font-bold tracking-widest text-gold-400 uppercase mt-4 sm:mt-6 mb-1.5 sm:mb-2">
+          <p className="font-serif text-lg sm:text-2xl md:text-3xl font-bold tracking-widest text-gold-400 uppercase mt-4 sm:mt-6 mb-1.5 sm:mb-2">
             {COMPANY_PROFILE.tagline}
-          </h2>
+          </p>
           <p className="text-slate-200 text-xs sm:text-base md:text-lg font-normal tracking-wide">
             Moving Your Business Beyond Boundaries
           </p>

@@ -2,7 +2,7 @@ export const IMAGES = {
   heroBg: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=2000',
   domesticTruck: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=1200',
   airCargo: 'https://images.unsplash.com/photo-1542296372-67429960e6a1?auto=format&fit=crop&q=80&w=1200',
-  railTrain: 'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&q=80&w=1200',
+  railTrain: '/rail_cargo.jpg',
   warehouse: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1200',
   gifting: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&q=80&w=1200',
   airplaneServicesHero: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=1200',
@@ -145,6 +145,14 @@ export const FAQ_DATA = [
   {
     question: 'What if my parcel is delayed or damaged?',
     answer: 'In case of any issue, our team will coordinate with the courier company and assist you with the resolution or claim process as per the applicable courier terms and conditions.',
+  },
+  {
+    question: 'What is 3PL logistics and how does GlobalShip manage supply chains?',
+    answer: 'Third-Party Logistics (3PL) involves outsourcing transportation, warehousing, collation, and distribution. GlobalShip Logistics acts as a full-service 3PL and multi-modal supply chain provider across 19,000+ surface pincodes and day-definite air express routes.',
+  },
+  {
+    question: 'How does GlobalShip Logistics align with India’s National Logistics Policy?',
+    answer: 'We support the National Logistics Policy goals of reducing logistics costs and improving operational efficiency by providing integrated multi-modal freight (surface, air, rail, PTL/FTL) with single-window accountability and real-time milestone tracking.',
   },
 ];
 
