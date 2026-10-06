@@ -24,8 +24,8 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* 3 Columns Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-12 pt-6 sm:pt-8 border-t border-navy-800/80 max-w-5xl mx-auto">
+        {/* Footer Links Layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 pt-6 sm:pt-8 border-t border-navy-800/80 max-w-5xl mx-auto">
           
           {/* Column 1: Contact */}
           <div className="space-y-3 sm:space-y-4">
@@ -128,16 +128,6 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
-          </div>
-
-          {/* Column 3: GST Number */}
-          <div>
-            <h3 className="font-serif text-xl font-bold text-white mb-4">
-              Gst Number
-            </h3>
-            <p className="text-slate-300 text-base">
-              GSTIN: 07AAACG0123F1Z8
-            </p>
           </div>
 
         </div>
