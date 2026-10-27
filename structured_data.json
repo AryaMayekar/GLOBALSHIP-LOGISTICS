@@ -1,0 +1,223 @@
+{
+  "block_count": 1,
+  "processed_count": 1,
+  "total_bytes": 7914,
+  "truncated": false,
+  "blocks": [
+    {
+      "index": 1,
+      "size_bytes": 7914,
+      "valid": true,
+      "types": [
+        "Answer",
+        "BreadcrumbList",
+        "ContactPoint",
+        "FAQPage",
+        "ListItem",
+        "LogisticsService",
+        "Offer",
+        "OfferCatalog",
+        "PostalAddress",
+        "Question",
+        "Service",
+        "WebSite"
+      ],
+      "types_truncated": false,
+      "data": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "LogisticsService",
+            "@id": "https://globalshiplogistics.in/#organization",
+            "name": "GlobalShip Logistics",
+            "url": "https://globalshiplogistics.in/",
+            "logo": "https://globalshiplogistics.in/logo_gsl.png",
+            "image": "https://globalshiplogistics.in/logo_gsl.png",
+            "description": "Pan-India multi-modal logistics company and 3PL supply chain service provider specializing in domestic ground freight, air express, PTL/FTL trucking, rail cargo, and warehousing.",
+            "slogan": "Procure | Collate | Pack | Ship - Moving Business Beyond Boundaries",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Shop No 25, B wing, Harias Dream Park, Near Indian Bank, Hatkesh Udyog Nagar",
+              "addressCountry": "IN"
+            },
+            "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "telephone": "+91-9137024187",
+                "contactType": "customer service",
+                "areaServed": "IN",
+                "availableLanguage": [
+                  "English",
+                  "Hindi"
+                ]
+              },
+              {
+                "@type": "ContactPoint",
+                "telephone": "+91-9833889455",
+                "contactType": "customer support",
+                "areaServed": "IN",
+                "availableLanguage": [
+                  "English",
+                  "Hindi"
+                ]
+              }
+            ],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Logistics & Supply Chain Services",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Domestic Ground Logistics",
+                    "description": "Standard Premium B2B ground delivery network covering 19,000+ pincodes across India."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "International & Air Express Cargo",
+                    "description": "Day-definite air express milk runs serving 2,000+ next-day and 3,000+ second-day pincodes."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "PTL & FTL Freight",
+                    "description": "Flexible part-truckload (PTL/LTL) and full-truckload (FTL) commercial transportation solutions."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Rail Logistics",
+                    "description": "High-capacity and cost-efficient rail transport linking major industrial hubs across India."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Warehousing & Inventory Management",
+                    "description": "Secure storage, collation, custom packaging, and distributed supply chain fulfillment."
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://globalshiplogistics.in/#website",
+            "url": "https://globalshiplogistics.in/",
+            "name": "GlobalShip Logistics",
+            "publisher": {
+              "@id": "https://globalshiplogistics.in/#organization"
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://globalshiplogistics.in/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is your courier rate?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Our rates depend on the parcel weight, destination, and service requirement. We provide competitive rates and can suggest the most suitable courier option based on your requirement."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How long will my parcel take to reach?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Delivery time depends on the destination and service selected. Before booking, we can provide you with the expected delivery timeline."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Which courier company will you use?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We have access to multiple courier services, so we can select the most suitable option based on the destination, delivery requirement, and rate."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I track my shipment?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Once your shipment is booked, you will receive the tracking/AWB number. You can use it to track your shipment status until delivery."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What if my parcel is delayed or damaged?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "In case of any issue, our team will coordinate with the courier company and assist you with the resolution or claim process as per the applicable courier terms and conditions."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is 3PL logistics and how does GlobalShip manage supply chains?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Third-Party Logistics (3PL) involves outsourcing transportation, warehousing, collation, and distribution. GlobalShip Logistics acts as a full-service 3PL and multi-modal supply chain provider across 19,000+ surface pincodes and day-definite air express routes."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How does GlobalShip Logistics align with India’s National Logistics Policy?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We support the National Logistics Policy goals of reducing logistics costs and improving operational efficiency by providing integrated multi-modal freight (surface, air, rail, PTL/FTL) with single-window accountability and real-time milestone tracking."
+                }
+              }
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://globalshiplogistics.in/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://globalshiplogistics.in/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Services",
+                "item": "https://globalshiplogistics.in/services"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Track Shipment",
+                "item": "https://globalshiplogistics.in/track"
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "About Us",
+                "item": "https://globalshiplogistics.in/about"
+              },
+              {
+                "@type": "ListItem",
+                "position": 5,
+                "name": "Contact Support",
+                "item": "https://globalshiplogistics.in/contact"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

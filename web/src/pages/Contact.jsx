@@ -45,6 +45,8 @@ const Contact = () => {
   const [phoneError, setPhoneError] = useState('');
   const [fieldErrors, setFieldErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const validatePhone = (value) => {
     if (!value) {
@@ -103,7 +105,7 @@ const Contact = () => {
     || hasMissingRequiredField
     || Object.values(fieldErrors).some(Boolean);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationError = validatePhone(formData.phone);
     const nextFieldErrors = Object.fromEntries(
@@ -117,21 +119,53 @@ const Contact = () => {
       return;
     }
 
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({
-        fullName: '',
-        phone: '',
-        email: '',
-        shipmentId: '',
-        company: '',
-        subject: '',
-        message: ''
+    setIsSubmitting(true);
+    setSubmitError('');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
+          name: formData.fullName,
+          phone: formData.phone,
+          email: formData.email,
+          shipment_id: formData.shipmentId,
+          company: formData.company,
+          subject: formData.subject,
+          message: formData.message,
+        }),
       });
-      setPhoneError('');
-      setFieldErrors({});
-    }, 5000);
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Unable to submit your request.');
+      }
+
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({
+          fullName: '',
+          phone: '',
+          email: '',
+          shipmentId: '',
+          company: '',
+          subject: '',
+          message: ''
+        });
+        setPhoneError('');
+        setFieldErrors({});
+      }, 5000);
+    } catch (error) {
+      setSubmitError(error.message || 'Unable to submit your request. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -212,6 +246,11 @@ const Contact = () => {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-5 font-sans">
+                    {submitError && (
+                      <p className="p-4 bg-red-50 border border-red-200 rounded-xl text-sm font-semibold text-red-700" role="alert">
+                        {submitError}
+                      </p>
+                    )}
                     
                     {/* Row 1: Full Name & Mobile */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -359,11 +398,11 @@ const Contact = () => {
                     {/* Submit Button */}
                     <button
                       type="submit"
-                      disabled={hasFormErrors}
+                      disabled={hasFormErrors || isSubmitting}
                       className="site-button w-full bg-gold-400 hover:bg-gold-500 active:scale-[0.98] text-navy-950 font-serif font-bold text-base py-4 px-5 rounded-xl shadow-md hover:shadow-lg transition-all flex flex-row flex-nowrap items-center justify-center gap-2 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-slate-500 disabled:shadow-none disabled:hover:bg-slate-300 disabled:hover:translate-y-0"
                     >
-                      <span className="whitespace-nowrap">Submit Request</span>
-                      <Send size={18} className="shrink-0" />
+                      <span className="whitespace-nowrap">{isSubmitting ? 'Sending...' : 'Submit Request'}</span>
+                      {!isSubmitting && <Send size={18} className="shrink-0" />}
                     </button>
                   </form>
                 )}
